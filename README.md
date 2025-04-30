@@ -4,84 +4,84 @@ This is a simple example of one of the components from StudioKit - a ui and util
 
 ## Getting started
 
-Simply clone the repo and start the simulator. You will see a simple representation of the SKList, one of the core list components in StudioKit. It represents the core principles: creating components that neatly wrap the performance and depth of UIKit in simple and efficient ui apis.
+Simply clone the repo and start the simulator. You will see a simple representation of the SKList, one of the core list components in StudioKit. It represents the core principles: creating components that neatly wrap the performance and depth of UIKit in simple and efficient ui apis. The following example creates a list with 5 sections, and 4 unique compositional layouts, that would take 100s of lines of boilerplate in UIKit, and be unperformant or difficult to replicate in SwiftUI.
 
 ```swift
 let list = SKList(
-            registerCells: [
-                SKRowListCell.self,
-                SKGridListCell.self,
-            ],
-            sections: [
-                .init(
-                    id: "1",
-                    title: "Section 1",
-                    items: SKList.createDummyData(for: 3),
-                    layout: SKList.createGridSection(
-                        width: self.view.frame.width,
-                        columns: 1,
-                        header: SKListHeader.self
-                    ),
-                    cellForIndexPath: { event in
-                        return SKRowListCell.self
-                    }
-                ),
-                .init(
-                    id: "2",
-                    title: "Section 2",
-                    items: SKList.createDummyData(for: 5),
-                    layout: SKList.createHorizontalScrollingSection(
-                        width: self.view.frame.width,
-                        cellHeight: SKGridListCell.cellHeight,
-                        visibleCells: 3,
-                        header: SKListHeader.self
-                    ),
-                    cellForIndexPath: { event in
-                        return SKGridListCell.self
-                    }
-                ),
-                .init(
-                    id: "3",
-                    title: "Section 3",
-                    items: SKList.createDummyData(for: 7),
-                    layout: SKList.createGridSection(
-                        width: self.view.frame.width,
-                        columns: 2,
-                        header: SKListHeader.self
-                    ),
-                    cellForIndexPath: { event in
-                        return SKRowListCell.self
-                    }
-                ),
-                .init(
-                    id: "4",
-                    title: "Section 4",
-                    items: SKList.createDummyData(for: 5),
-                    layout: SKList.createHorizontalScrollingSection(
-                        width: self.view.frame.width,
-                        cellHeight: SKGridListCell.cellHeight,
-                        visibleCells: 2,
-                        header: SKListHeader.self
-                    ),
-                    cellForIndexPath: { event in
-                        return SKGridListCell.self
-                    }
-                ),
-                .init(
-                    id: "5",
-                    title: "Section 5",
-                    items: SKList.createDummyData(for: 100),
-                    layout: SKList.createGridSection(
-                        width: self.view.frame.width,
-                        columns: 1,
-                        header: SKListHeader.self
-                    ),
-                    cellForIndexPath: { event in
-                        return SKRowListCell.self
-                    }
-                ),
-            ]
-        )
+registerCells: [
+    SKRowListCell.self,
+    SKGridListCell.self,
+],
+sections: [
+    .init(
+        id: "1",
+        title: "Section 1",
+        items: SKList.createDummyData(for: 3),
+        layout: SKList.createGridSection(
+            width: self.view.frame.width,
+            columns: 1,
+            header: SKListHeader.self
+        ),
+        cellForIndexPath: { event in
+            return SKRowListCell.self
+        }
+    ),
+    .init(
+        id: "2",
+        title: "Section 2",
+        items: SKList.createDummyData(for: 5),
+        layout: SKList.createHorizontalScrollingSection(
+            width: self.view.frame.width,
+            cellHeight: SKGridListCell.cellHeight,
+            visibleCells: 3,
+            header: SKListHeader.self
+        ),
+        cellForIndexPath: { event in
+            return SKGridListCell.self
+        }
+    ),
+    .init(
+        id: "3",
+        title: "Section 3",
+        items: SKList.createDummyData(for: 7),
+        layout: SKList.createGridSection(
+            width: self.view.frame.width,
+            columns: 2,
+            header: SKListHeader.self
+        ),
+        cellForIndexPath: { event in
+            return SKRowListCell.self
+        }
+    ),
+    .init(
+        id: "4",
+        title: "Section 4",
+        items: SKList.createDummyData(for: 5),
+        layout: SKList.createHorizontalScrollingSection(
+            width: self.view.frame.width,
+            cellHeight: SKGridListCell.cellHeight,
+            visibleCells: 2,
+            header: SKListHeader.self
+        ),
+        cellForIndexPath: { event in
+            return SKGridListCell.self
+        }
+    ),
+    .init(
+        id: "5",
+        title: "Section 5",
+        items: SKList.createDummyData(for: 100),
+        layout: SKList.createGridSection(
+            width: self.view.frame.width,
+            columns: 1,
+            header: SKListHeader.self
+        ),
+        cellForIndexPath: { event in
+            return SKRowListCell.self
+        }
+    ),
+]
+)
 ```
 
 
