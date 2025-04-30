@@ -1,6 +1,6 @@
 # Studio Kit Example
 
-This is a simple example of one of the components from StudioKit - a ui and utility library made by 1990 Studio. For full access of any questions, please contact kristian@1990.studio.
+This is a simple example of one of the components from StudioKit - a ui and utility library made by 1990 Studio. For full access or any questions, please contact kristian@1990.studio.
 
 ## Getting started
 
