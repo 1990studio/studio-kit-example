@@ -4,7 +4,7 @@ This is a simple example of one of the components from StudioKit - a ui and util
 
 ## Getting started
 
-Simply clone the repo and start the simulator. You will see a simple representation of the SKList, one of the core list components in StudioKit. It represents the core principles: creating components that neatly wrap the performance and depth of UIKit and offer simple and efficient ui api.
+Simply clone the repo and start the simulator. You will see a simple representation of the SKList, one of the core list components in StudioKit. It represents the core principles: creating components that neatly wrap the performance and depth of UIKit in simple and efficient ui apis.
 
 ```swift
 let list = SKList(
