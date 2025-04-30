@@ -1,44 +1,87 @@
 # Studio Kit Example
 
-It is written in swift, using a programatic UIKit approach. This means no storyboard is used, but instead a root viewController is initialized from the SceneDelegate. SwiftUI is not currently used but may be introduced in the future as a UI Layer. Please use NSLayoutConstraints as the main layouting mechanism. There is a base UIView called SAView that sets translatesAutoresizingMaskIntoConstraints to false by default to make this even easier to implement.
+This is a simple example of one of the components from StudioKit - a ui and utility library made by 1990 Studio. For full access of any questions, please contact kristian@1990.studio.
 
 ## Getting started
 
-## Colors
-
-Colors are loosely designed around the core principles of radix colors (https://www.radix-ui.com/colors) and when to use each color. Colors are defined as ColorSets in the assets folder to get out-of-the-box light/dark appearance support.
-
-### Background Colors
-| Name                     | Light        | Dark         |
-| :----------------        | :----------- | :----------- |
-| Root Background          | #000000      | #000000      |
-| Primary Background       | #F0F0F0      | #191919      |
-| Elevated Background      | #FFFFFF      | #222222      |
-| Primary Interactive      | #E0E0E0      | #2A2A2A      |
-| Secondary Interactive    | #8D8D8D      | #8D8D8D      |
-| Active Interactive       | #000000      | #FFFFFF      |
-| Accent                   | #006AFF      | #006AFF      |
-
-### Text Colors
-| Name                     | Light        | Dark         |
-| :---------------------------        | :----------- | :----------- |
-| Primary Text             | #000000      | #FFFFFF      |
-| Secondary Text           | #747474      | #AAAAAA      |
-| Inactive Text            | #B4B4B4      | #5D5D5D      |
-| Destructive Text         | #E5484D      | #E5484D      |
-| Active Text              | #FFFFFF      | #000000      |
-
-### Blurs
-| Name                     | Light               | Dark                 |
-| :----------------        | :-----------        | :-----------         |
-| Primary Blur             | #8D8D8D (90%, 30px) | #191919 (95%, 30px)  |
-| Interactive Blur         | #E0E0E0 (90%, 30px) | #222222 (95%, 30px)  |
-
-Colors are implemented using the UIColor extension that provides semantic definitions matching the above naming. To force a light or dark appearance for a color simply call .dark()
+Simply clone the repo and start the simulator. You will see a simple representation of the SKList, one of the core list components in StudioKit. It represents the core principles: creating components that neatly wrap the performance and depth of UIKit and offer simple and efficient ui api.
 
 ```swift
-let dynamicPrimaryTextColor = .primaryText
-let alwaysDarkPrimaryTextColor = .primaryText.dark()
+let list = SKList(
+            registerCells: [
+                SKRowListCell.self,
+                SKGridListCell.self,
+            ],
+            sections: [
+                .init(
+                    id: "1",
+                    title: "Section 1",
+                    items: SKList.createDummyData(for: 3),
+                    layout: SKList.createGridSection(
+                        width: self.view.frame.width,
+                        columns: 1,
+                        header: SKListHeader.self
+                    ),
+                    cellForIndexPath: { event in
+                        return SKRowListCell.self
+                    }
+                ),
+                .init(
+                    id: "2",
+                    title: "Section 2",
+                    items: SKList.createDummyData(for: 5),
+                    layout: SKList.createHorizontalScrollingSection(
+                        width: self.view.frame.width,
+                        cellHeight: SKGridListCell.cellHeight,
+                        visibleCells: 3,
+                        header: SKListHeader.self
+                    ),
+                    cellForIndexPath: { event in
+                        return SKGridListCell.self
+                    }
+                ),
+                .init(
+                    id: "3",
+                    title: "Section 3",
+                    items: SKList.createDummyData(for: 7),
+                    layout: SKList.createGridSection(
+                        width: self.view.frame.width,
+                        columns: 2,
+                        header: SKListHeader.self
+                    ),
+                    cellForIndexPath: { event in
+                        return SKRowListCell.self
+                    }
+                ),
+                .init(
+                    id: "4",
+                    title: "Section 4",
+                    items: SKList.createDummyData(for: 5),
+                    layout: SKList.createHorizontalScrollingSection(
+                        width: self.view.frame.width,
+                        cellHeight: SKGridListCell.cellHeight,
+                        visibleCells: 2,
+                        header: SKListHeader.self
+                    ),
+                    cellForIndexPath: { event in
+                        return SKGridListCell.self
+                    }
+                ),
+                .init(
+                    id: "5",
+                    title: "Section 5",
+                    items: SKList.createDummyData(for: 100),
+                    layout: SKList.createGridSection(
+                        width: self.view.frame.width,
+                        columns: 1,
+                        header: SKListHeader.self
+                    ),
+                    cellForIndexPath: { event in
+                        return SKRowListCell.self
+                    }
+                ),
+            ]
+        )
 ```
 
 
